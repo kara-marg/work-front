@@ -1,0 +1,51 @@
+<article>
+  <section>
+    <h2 class="text-name">Sign in Your Account</h2>
+    <form [formGroup]="registrationForm">
+      <div class="input-block">
+        <h2>First name</h2>
+        <mat-form-field class="input-full-width">
+          <mat-label>Enter your first name</mat-label>
+          <input matInput formControlName="firstName">
+        </mat-form-field>
+      </div>
+      <div class="input-block">
+        <h2>Last name</h2>
+        <mat-form-field class="input-full-width">
+          <mat-label>Enter your last name</mat-label>
+          <input matInput formControlName="lastName">
+        </mat-form-field>
+      </div>
+      <div class="input-block">
+        <h2>Username</h2>
+        <mat-form-field class="input-full-width">
+          <mat-label>Enter your username</mat-label>
+          <input matInput formControlName="username">
+        </mat-form-field>
+      </div>
+      <div class="input-block">
+        <h2>Email</h2>
+        <mat-form-field class="input-full-width">
+          <mat-label>Enter your email</mat-label>
+          <input matInput placeholder="pat@example.com" formControlName="email" required>
+          <mat-error *ngIf="this.registrationForm.controls.email.hasError('required')">You must enter a value
+          </mat-error>
+          <mat-error *ngIf="this.registrationForm.controls.email.hasError('email')">Not a valid email</mat-error>
+        </mat-form-field>
+      </div>
+      <div class="input-block">
+        <h2>Password</h2>
+        <mat-form-field class="input-full-width">
+          <mat-label>Enter your password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                  [attr.aria-pressed]="hide">
+            <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+    </form>
+    <button class="login-button" mat-raised-button color="accent" routerLink="/auth">Sign up</button>
+    <h2 class="h2-class">Already have an account? <a [routerLink]="['/auth']">Sign in</a></h2>
+  </section>
+</article>

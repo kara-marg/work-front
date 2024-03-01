@@ -1,0 +1,25 @@
+
+.button-description, .button-Jira{
+  font-size: 18px;
+  margin-left: 3%; // Додає відступ між кнопками
+  max-width: calc(70% - 0.5%); // Задає максимальну ширину кнопок
+
+}
+td,th {
+  font-size: 18px;
+  margin-left: 0; // Видаляє стандартний відступ, щоб уникнути зайвого простору
+  flex-grow: 1; // Займати доступний простір}
+}
+table {
+  width: 100%;
+  margin-top: 1%;
+}
+.actions{
+  font-size: 18px;
+  margin-left: 0; // Видаляє стандартний відступ, щоб уникнути зайвого простору
+  flex-grow: 1; // Займати доступний простір}
+  padding-left: 20%;
+}
+.actions-button{
+  padding-left: 15%;
+}

@@ -1,0 +1,9 @@
+<div class="header-content">
+  <h1>Tickets for {{ project?.name }}</h1>
+  <button mat-button class="button-sort" mat-raised-button color="accent">Sort by priority</button>
+  <button mat-button class="button-hideTC" mat-raised-button color="accent" (click)="changeVisibilityOfTC()">
+    <div *ngIf="showTestCases">Hide Test cases</div>
+    <div *ngIf="!showTestCases">Show Test cases</div>
+  </button>
+</div>
+  <app-tickets-details *ngFor="let ticket of project?.ticketList" [ticket]="ticket" [showTestCases]="showTestCases"></app-tickets-details>

@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+.input-block{
+  width: 90%;
+  margin-left: 5%; margin-right: 5%;
+}
+
+.input-full-width {
+  width: 100%;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  width: 100%; // Займати всю доступну ширину
+}
