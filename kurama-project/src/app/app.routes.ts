@@ -2,12 +2,12 @@ import { Routes } from '@angular/router';
 import {RegistrationComponent} from "./components/registration/registration.component";
 import {HomeComponent} from "./components/home/home.component";
 import {AuthorizationComponent} from "./components/authorization/authorization.component";
-import {TicketsListComponent} from "./components/tickets/tickets-list/tickets-list.component";
+import {RequirementListComponent} from "./components/requirement/requirement-list/requirement-list.component";
 import {ProjectListComponent} from "./components/project/project-list/project-list.component";
-import {ComponentsListComponent} from "./components/components-list/components-list.component";
-import {TicketPageComponent} from "./components/ticket/ticket-page/ticket-page.component";
+import {RequirementPageComponent} from "./components/requirement/requirment-page/requirement-page.component";
 import {TcPageComponent} from "./components/test-cases/tc-page/tc-page.component";
-import {AuthGuard} from "./services/auth-guard.service";
+import {AuthGuard} from "./services/domain/auth-guard.service";
+import {ProjectPageComponent} from "./components/project/project-page/project-page.component";
 
 export const routes: Routes = [
   {
@@ -27,8 +27,8 @@ export const routes: Routes = [
     title: 'Authorization page'
   },
   {
-    path: 'ticket-page/:id',
-    component: TicketPageComponent,
+    path: 'requirement-page/:id',
+    component: RequirementPageComponent,
     title: 'Ticket page',
     canActivate: [AuthGuard]
   },
@@ -39,15 +39,9 @@ export const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: 'components-list',
-    component: ComponentsListComponent,
-    title: 'Components-list page',
-    canActivate: [AuthGuard]
-  },
-  {
     path: 'project/:id',
-    component: TicketsListComponent,
-    title: 'Project ticket list page',
+    component: ProjectPageComponent,
+    title: 'Project page',
     canActivate: [AuthGuard]
   },
   {

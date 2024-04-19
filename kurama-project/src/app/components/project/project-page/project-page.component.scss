@@ -1,0 +1,89 @@
+//article {
+//  padding: 1% 5%;
+//}
+//.project-card {
+//  background-color: #C9D6F6;
+//}
+//
+//
+//.project-card {
+//  background-color: #C9D6F6;
+//}
+
+//
+//
+//.example-button-row {
+//  display: flex;
+//  justify-content: space-between;
+//  align-items: center; // Центрує елементи по вертикалі
+//  background-color: white;
+//  width: 100%;
+//}
+//
+//h1 {
+//  font-size: 24px;
+//  font-weight: 500;
+//  margin: 0; // Видаляє стандартний відступ, щоб уникнути зайвого простору
+//  flex-grow: 1; // Займати доступний простір
+//}
+//
+//.header-content {
+//  display: flex;
+//  align-items: center;
+//  width: 100%; // Займати всю доступну ширину
+//  padding-bottom: 0;
+//}
+
+article {
+  padding: 1% 5%;
+}
+.project-card {
+  border-radius: 15px;
+}
+.project-header{
+  background-color: #6976b2;
+  color: white;
+  //border-bottom: #3f51b5 2px solid;
+}
+.description{
+  background-color: yellow;
+
+  width: 50%;
+}
+.users{
+  background-color: gray;
+  width: 50%;
+}
+
+.h2ForDescription{
+  margin-left: 1%;
+  margin-top: 1%;
+}
+
+.information{
+  padding-top: 1%;
+  padding-bottom: 1%;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.components-header{
+  background-color: #6976b2;
+  color: white;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 0;
+  position: relative;
+}
+
+.h1-components{
+  margin-left: 1%;
+  margin-top: 1%;
+}
+.button-add{
+  position: absolute;
+  right: 1%;
+
+}

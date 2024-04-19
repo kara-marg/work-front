@@ -13,7 +13,7 @@
   <ng-container matColumnDef="actions">
     <th class="actions" mat-header-cell *matHeaderCellDef> Actions</th>
     <td class="actions-button" mat-cell *matCellDef="let element">
-      <button mat-button class="button-description" mat-stroked-button  routerLink="/tc-page/{{testCasesList?.id}}">Open Test Case</button>
+      <button mat-button class="button-description" mat-stroked-button  routerLink="/tc-page/{{element?.id}}">Open Test Case</button>
       <button mat-button class="button-Jira" mat-stroked-button *ngIf="element.isAutomated" >Run Auto</button>
     </td>
   </ng-container>

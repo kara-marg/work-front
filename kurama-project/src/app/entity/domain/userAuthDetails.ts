@@ -1,4 +1,4 @@
-import {Ticket} from "../ticket";
+import {Requirement} from "../requirement";
 import {TestCase} from "../testCase";
 
 export interface UserAuthDetails {

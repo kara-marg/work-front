@@ -1,0 +1,47 @@
+<article>
+  <mat-card class="project-card">
+    <mat-card-header class="project-header">
+      <!--      <mat-card-actions class="example-button-row">-->
+      <!--        <div class="header-content">-->
+      <h1>{{ project?.name }}</h1>
+      <!--        </div>-->
+      <!--      </mat-card-actions>-->
+    </mat-card-header>
+    <mat-card-content>
+      <div class="information">
+        <div class="description">
+          <h2 class="h2ForDescription">Description: </h2>
+          <p class="h2ForDescription">{{ project?.description }}</p>
+        </div>
+        <div class="users">
+          <h2 class="h2ForDescription">All users of this project: </h2>
+          <p class="h2ForDescription">Karina</p>
+          <p class="h2ForDescription">Nick</p>
+          <p class="h2ForDescription">Karina</p>
+          <p class="h2ForDescription">Nick</p>
+          <p class="h2ForDescription">Karina</p>
+          <p class="h2ForDescription">Nick</p>
+          <p class="h2ForDescription">Karina</p>
+          <p class="h2ForDescription">Nick</p>
+          <p class="h2ForDescription">Karina</p>
+          <p class="h2ForDescription">Nick</p>
+        </div>
+      </div>
+      <div>
+        <div class="components-header">
+            <h1 class="h1-components">Components:</h1>
+          <div class="button-add">
+            <button mat-mini-fab matTooltip="Add new component" color="white" >
+              <mat-icon >add</mat-icon>
+            </button>
+          </div>
+
+        </div>
+        <app-project-component-item *ngFor="let component of project?.projectComponents"
+                                    [projectComponent]="component"></app-project-component-item>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</article>
+
+

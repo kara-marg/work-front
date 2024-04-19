@@ -5,12 +5,12 @@ import {ActivatedRoute, RouterLink} from "@angular/router";
 import {ProjectService} from "../../../services/project.service";
 import {Project} from "../../../entity/project";
 import {TicketService} from "../../../services/ticket.service";
-import {Ticket} from "../../../entity/ticket";
+import {Requirement} from "../../../entity/requirement";
 import {TcListComponent} from "../../test-cases/tc-list/tc-list.component";
-import {TestCasesService} from "../../../services/test-cases.service";
+import {TcService} from "../../../services/tc.service";
 import {TestCase} from "../../../entity/testCase";
 import {DatePipe, NgForOf} from "@angular/common";
-import {ProjectDetailsComponent} from "../../project/project-details/project-details.component";
+import {ProjectItemComponent} from "../../project/project-item/project-item.component";
 
 @Component({
   selector: 'app-ticket-page',
@@ -24,16 +24,16 @@ import {ProjectDetailsComponent} from "../../project/project-details/project-det
     RouterLink,
     TcListComponent,
     NgForOf,
-    ProjectDetailsComponent,
+    ProjectItemComponent,
     DatePipe
   ],
-  templateUrl: './ticket-page.component.html',
-  styleUrl: './ticket-page.component.scss'
+  templateUrl: './requirement-page.component.html',
+  styleUrl: './requirement-page.component.scss'
 })
-export class TicketPageComponent {
+export class RequirementPageComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
   ticketService: TicketService = inject(TicketService);
-  ticket?: Ticket;
+  ticket?: Requirement;
 
   constructor() {
     const ticketId = Number(this.route.snapshot.params['id']);

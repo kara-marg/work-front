@@ -1,0 +1,18 @@
+<mat-accordion class="example-headers-align" multi>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{projectComponent?.name}}
+      </mat-panel-title>
+      <mat-panel-description>
+        <mat-icon *ngIf="projectComponent?.finished" class="ok-icon">check</mat-icon>
+        <mat-icon *ngIf="!projectComponent?.finished" class="cancel-icon">cancel</mat-icon>
+        <mat-progress-bar mode="determinate" [value]="10"></mat-progress-bar>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p *ngFor="let requirement of projectComponent?.requirements">
+      - {{requirement?.name}}
+    </p>
+
+  </mat-expansion-panel>
+</mat-accordion>

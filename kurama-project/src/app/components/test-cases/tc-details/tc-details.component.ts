@@ -15,7 +15,7 @@ import {NgIf} from "@angular/common";
 import {MatIcon} from "@angular/material/icon";
 import {MatFormField} from "@angular/material/form-field";
 import {MatInput} from "@angular/material/input";
-import {Ticket} from "../../../entity/ticket";
+import {Requirement} from "../../../entity/requirement";
 
 @Component({
   selector: 'app-tc-details',
@@ -47,6 +47,5 @@ import {Ticket} from "../../../entity/ticket";
 export class TcDetailsComponent {
   displayedColumns: string[] = ['name', 'status', 'actions'];
   @Input() inputTestCaseList?: TestCase[] = [];
-  @Input() testCasesList?: TestCase;
 
 }

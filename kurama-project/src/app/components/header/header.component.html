@@ -2,11 +2,17 @@
   <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="onClick()">
     <mat-icon>menu</mat-icon>
   </button>
+  <button mat-raised-button *ngIf="headerService?.isNewItemCreate()">New {{headerService.getItemName()}} + </button>
+
   <button mat-button class="example-spacer" routerLink="/">{{ text }}</button>
   <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
     <mat-icon>favorite</mat-icon>
   </button>
   <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
     <mat-icon>share</mat-icon>
+  </button>
+  <button mat-icon-button aria-label="logout"  (click)="logout()">
+    Log out
+    <mat-icon>exit-to-app</mat-icon>
   </button>
 </mat-toolbar>

@@ -1,11 +1,11 @@
 import {Component, inject, Input, NgModule} from '@angular/core';
-import {TestCasesService} from "../../../services/test-cases.service";
+import {TcService} from "../../../services/tc.service";
 import {TestCase} from "../../../entity/testCase";
 import {TcDetailsComponent} from "../tc-details/tc-details.component";
 import {ProjectService} from "../../../services/project.service";
 import {Project} from "../../../entity/project";
 import {TicketService} from "../../../services/ticket.service";
-import {Ticket} from "../../../entity/ticket";
+import {Requirement} from "../../../entity/requirement";
 import {ActivatedRoute} from "@angular/router";
 import {NgForOf, NgIf} from "@angular/common";
 import {MatButton} from "@angular/material/button";
@@ -45,12 +45,12 @@ import {MatIcon} from "@angular/material/icon";
 })
 export class TcListComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
- // testCasesService: TestCasesService = inject(TestCasesService);
+ // testCasesService: TcService = inject(TcService);
  //testCase?: Testcase;
   displayedColumns: string[] = ['name', 'status', 'actions'];
   @Input() inputTestCaseList?: TestCase[] = [];
   ticketService: TicketService = inject(TicketService);
-  ticket?: Ticket
+  ticket?: Requirement
 
   constructor() {
     const ticketId = Number(this.route.snapshot.params['id']);

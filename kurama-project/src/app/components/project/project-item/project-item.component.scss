@@ -26,6 +26,59 @@ h2 {
   max-width: calc(50% - 0.5%); // Задає максимальну ширину кнопок
 }
 
-.mat-card {
-  background-color: #C9D6F6;
+//.mat-card {
+//  background-color: #C9D6F6;
+//}
+
+.project-card {
+  border-radius: 15px;
 }
+
+.project-item-header{
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  border: 2px solid;
+  color: white;
+  background-color: #3f51b5;
+}
+
+.project-item-description{
+  margin-left: 1%;
+}
+
+.project-item-name{
+  margin-left: 1%;
+}
+
+.project-item-content{
+
+}
+
+.project-header{
+  background-color: #6976b2;
+  color: white;
+  //border-bottom: #3f51b5 2px solid;
+}
+
+.project-header:hover{
+  background-color: #3f51b5 ;
+  cursor: pointer;
+  //color: white;
+  //border-bottom: #3f51b5 2px solid;
+}
+
+.ok-icon{
+  color: #3f51b5
+}
+
+.cancel-icon{
+  color: #E91E63
+}
+
+.header-icon{
+  float: right;
+  margin-right: 5%;
+}
+
+
+
