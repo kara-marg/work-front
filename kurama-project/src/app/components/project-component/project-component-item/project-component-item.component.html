@@ -2,17 +2,23 @@
   <mat-expansion-panel>
     <mat-expansion-panel-header>
       <mat-panel-title>
-        {{projectComponent?.name}}
+        {{ projectComponent?.name }}
+        <mat-icon class="info-icon" matTooltip={{projectComponent?.description}}>info_outline</mat-icon>
       </mat-panel-title>
+
       <mat-panel-description>
         <mat-icon *ngIf="projectComponent?.finished" class="ok-icon">check</mat-icon>
         <mat-icon *ngIf="!projectComponent?.finished" class="cancel-icon">cancel</mat-icon>
         <mat-progress-bar mode="determinate" [value]="10"></mat-progress-bar>
       </mat-panel-description>
     </mat-expansion-panel-header>
-    <p *ngFor="let requirement of projectComponent?.requirements">
-      - {{requirement?.name}}
-    </p>
+    <div>
+      <p *ngFor="let requirement of projectComponent?.requirements" class="requirement" routerLink="/requirement/{{requirement?.id}}" >
+        - {{ requirement?.name }}
+        <mat-icon class="header-icon">arrow_right_alt</mat-icon>
+      </p>
+    </div>
+
 
   </mat-expansion-panel>
 </mat-accordion>

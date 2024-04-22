@@ -2,10 +2,10 @@ import {Requirement} from "./requirement";
 
 
 export interface ProjectComponent {
-  id: number;
-  name: string;
-  description: string;
-  finished: boolean
-  projectId: number
+  id?: number | null;
+  name: string | null;
+  description: string | null;
+  finished: boolean | null;
+  projectId: number | null;
   requirements?: Requirement[];
 }

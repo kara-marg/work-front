@@ -11,11 +11,11 @@ export class RequestService {
 
   constructor(private jwtTokenService: JwtTokenService, private http: HttpClient) { }
 
-  // postRequest(path: String, requestData: Object): Observable<any> {
-  //   // return this.http.post<Object>(this.baseUrl + path, requestData ,
-  //   //   { headers:  this.getHeaders() }
-  //   // );
-  // }
+  postRequest(path: String, requestData: Object): Observable<any> {
+    return this.http.post<Object>(this.baseUrl + path, requestData ,
+      { headers:  this.getHeaders() }
+    );
+  }
 
   getRequest(path: String): Observable<any> {
     this.getHeaders();

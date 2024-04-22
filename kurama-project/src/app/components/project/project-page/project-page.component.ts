@@ -27,6 +27,10 @@ import {ProjectComponent} from "../../../entity/projectComponent";
 import {MatButton, MatIconButton, MatMiniFabButton} from "@angular/material/button";
 import {ProjectComponentItem} from "../../project-component/project-component-item/project-component-item.component";
 import {MatTooltip} from "@angular/material/tooltip";
+import {MatDialog} from "@angular/material/dialog";
+import {
+  ProjectComponentCreateDialogComponent
+} from "../../project-component/project-component-create-dialog/project-component-create-dialog.component";
 
 @Component({
   selector: 'app-project-page',
@@ -69,15 +73,33 @@ export class ProjectPageComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
   projectService: ProjectService = inject(ProjectService);
   project?: Project;
+  projectId?: number
+
   displayedColumns: string[] = ["name", "finished", "coverage"];
 
-  constructor() {
-    const projectId = Number(this.route.snapshot.params['id']);
-    this.projectService.getProjectById(projectId).subscribe(
-      data => {
-        console.log(data)
-        this.project = data;
-      }
-    )
+  constructor(public dialog: MatDialog) {
+    this.projectId = Number(this.route.snapshot.params['id']);
+    this.getProjectById();
   }
+
+  getProjectById() {
+    if (this.projectId) {
+      this.projectService.getProjectById(this.projectId).subscribe(
+        data => {
+          this.project = data;
+        }
+      )
+    }
+  }
+
+  openProjectComponentDialog() {
+    const dialogRef = this.dialog.open(ProjectComponentCreateDialogComponent, {
+      width: '50%',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.getProjectById();
+    });
+  }
+
 }

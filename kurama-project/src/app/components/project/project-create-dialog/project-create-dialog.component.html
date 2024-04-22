@@ -1,0 +1,25 @@
+<article *ngIf="!loading">
+  <h1 mat-dialog-title>Create Project</h1>
+  <mat-dialog-content class="mat-typography">
+    <form [formGroup]="createProjectForm" class="project-form">
+      <div>
+        <h2>Name</h2>
+        <mat-form-field class="project-full-width">
+          <mat-label>Enter project name</mat-label>
+          <input matInput formControlName="projectNameInput" required>
+        </mat-form-field>
+      </div>
+      <div>
+        <h2>Description</h2>
+        <mat-form-field  class="project-full-width">
+          <mat-label>Enter project description</mat-label>
+          <input matInput formControlName="projectDescriptionInput" required>
+        </mat-form-field>
+      </div>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [disabled]="!createProjectForm.valid" (click)="save()">Save</button>
+  </mat-dialog-actions>
+</article>

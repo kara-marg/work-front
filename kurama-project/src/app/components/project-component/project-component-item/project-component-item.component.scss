@@ -1,0 +1,22 @@
+.info-icon{
+  color: #6976b2;
+}
+.ok-icon{
+  color: #3f51b5
+}
+
+.cancel-icon{
+  color: #E91E63
+}
+.header-icon{
+  float: right;
+  margin-right: 5%;
+}
+.requirement{
+  transition: background-color 0.3s ease;
+}
+
+.requirement:hover{
+  background-color: rgba(105, 118, 178, 0.2);
+  cursor: pointer;
+}

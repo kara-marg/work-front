@@ -1,0 +1,35 @@
+<article *ngIf="!loading">
+  <h1 mat-dialog-title>Create Component</h1>
+  <mat-dialog-content class="mat-typography">
+  <form [formGroup]="createComponentForm" class="component-form">
+    <div>
+      <h2>Name</h2>
+      <mat-form-field class="component-full-width">
+        <mat-label>Enter component name</mat-label>
+        <input matInput formControlName="componentNameInput" required>
+      </mat-form-field>
+    </div>
+    <div>
+      <h2>Description</h2>
+      <mat-form-field  class="component-full-width">
+        <mat-label>Enter component description</mat-label>
+        <input matInput formControlName="componentDescriptionInput" required>
+      </mat-form-field>
+    </div>
+    <div>
+      <h2>Project</h2>
+      <mat-form-field class="component-full-width">
+        <mat-label>Choose a project</mat-label>
+        <mat-select formControlName="componentProjectSelect" required>
+          <mat-option *ngFor="let project of projects" value="{{project.id}}">{{project.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+  </form>
+    </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [disabled]="!createComponentForm.valid" (click)="save()">Save</button>
+  </mat-dialog-actions>
+</article>

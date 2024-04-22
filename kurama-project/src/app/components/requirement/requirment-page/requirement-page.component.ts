@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {Component, inject, Input} from '@angular/core';
 import {MatButton} from "@angular/material/button";
 import {MatCard, MatCardActions, MatCardContent, MatCardHeader} from "@angular/material/card";
 import {ActivatedRoute, RouterLink} from "@angular/router";
@@ -11,6 +11,8 @@ import {TcService} from "../../../services/tc.service";
 import {TestCase} from "../../../entity/testCase";
 import {DatePipe, NgForOf} from "@angular/common";
 import {ProjectItemComponent} from "../../project/project-item/project-item.component";
+import {RequirementService} from "../../../services/requirement.service";
+import {MatIcon} from "@angular/material/icon";
 
 @Component({
   selector: 'app-ticket-page',
@@ -25,19 +27,34 @@ import {ProjectItemComponent} from "../../project/project-item/project-item.comp
     TcListComponent,
     NgForOf,
     ProjectItemComponent,
-    DatePipe
+    DatePipe,
+    MatIcon
   ],
   templateUrl: './requirement-page.component.html',
   styleUrl: './requirement-page.component.scss'
 })
 export class RequirementPageComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
-  ticketService: TicketService = inject(TicketService);
-  ticket?: Requirement;
+  requirementService: RequirementService = inject(RequirementService);
+  requirement?: Requirement;
+  requirementId?: number;
+
+
+
 
   constructor() {
-    const ticketId = Number(this.route.snapshot.params['id']);
-    this.ticket = this.ticketService.getTicketById(ticketId)
+    this.requirementId = Number(this.route.snapshot.params['id']);
+    this.getRequirementById();
 
+  }
+
+  getRequirementById(){
+    if (this.requirementId){
+      this.requirementService.getRequirementById(this.requirementId).subscribe(
+        data =>{
+          this.requirement = data;
+        }
+      )
+    }
   }
 }

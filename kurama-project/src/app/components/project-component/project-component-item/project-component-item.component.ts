@@ -20,6 +20,8 @@ import {
   MatExpansionPanelTitle
 } from "@angular/material/expansion";
 import {HeaderService} from "../../../services/domain/header.service";
+import {MatTooltip} from "@angular/material/tooltip";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-project-component-item',
@@ -44,7 +46,9 @@ import {HeaderService} from "../../../services/domain/header.service";
     MatExpansionModule,
     MatExpansionPanelTitle,
     MatExpansionPanelDescription,
-    NgForOf
+    NgForOf,
+    MatTooltip,
+    RouterLink
   ],
   templateUrl: './project-component-item.component.html',
   styleUrl: './project-component-item.component.scss'

@@ -1,32 +1,21 @@
 <article>
-  <mat-card class="mat-card">
-    <mat-card-header>
-      <mat-card-actions class="example-button-row">
-        <div class="header-content">
-          <h1>{{ticket?.name}}</h1>
-          <button mat-button class="button" mat-raised-button color="accent">Run Auto</button>
-          <button mat-button class="button" mat-raised-button color="accent" >Navigate to Jira</button>
-        </div>
-      </mat-card-actions>
+  <mat-card class="requirement-card">
+    <mat-card-header class="requirement-header">
+      <h1 routerLink="/project/{{requirement?.projectId}}" class="h1-link">{{ requirement?.projectName }}</h1>
+      <h2>
+        <mat-icon class="header-icon">arrow_right_alt</mat-icon>
+      </h2>
+      <h1
+        routerLink="/project-component/{{requirement?.projectComponentId}}" class="h1-link">{{ requirement?.projectComponentName }}</h1>
+      <h2>
+        <mat-icon class="header-icon">arrow_right_alt</mat-icon>
+      </h2>
+      <h1>{{ requirement?.name }}</h1>
+      <!--      <h1>{{}}</h1>-->
     </mat-card-header>
     <mat-card-content>
-      <div class="information">
-        <div class="allInfo">
-<!--          <h2>Reporter: {{ticket?.report}}</h2>-->
-<!--          <h2>Status: {{ticket?.status}}</h2>-->
-          <h2>Due date: {{ticket?.date | date}}</h2>
-<!--          <h2>Component: {{ticket?.component}}</h2>-->
-        </div>
-        <div class="description">
-          <h2 class="h2ForDescription">Description: </h2>
-          <p class="h2ForDescription">{{ ticket?.description }}</p>
-        </div>
-      </div>
-      <div class="header-for-tc">
-        <h2 class="h2-for-tc" >Test cases:</h2>
-      </div>
-      <div class="test-case">
-        <app-tc-list ></app-tc-list>
+      <div>
+        <p>{{ requirement?.description }}</p>
       </div>
     </mat-card-content>
   </mat-card>

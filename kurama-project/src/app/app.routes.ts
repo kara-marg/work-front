@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import {Routes} from '@angular/router';
 import {RegistrationComponent} from "./components/registration/registration.component";
 import {HomeComponent} from "./components/home/home.component";
 import {AuthorizationComponent} from "./components/authorization/authorization.component";
@@ -8,6 +8,9 @@ import {RequirementPageComponent} from "./components/requirement/requirment-page
 import {TcPageComponent} from "./components/test-cases/tc-page/tc-page.component";
 import {AuthGuard} from "./services/domain/auth-guard.service";
 import {ProjectPageComponent} from "./components/project/project-page/project-page.component";
+import {
+  ProjectComponentPageComponent
+} from "./components/project-component/project-component-page/project-component-page.component";
 
 export const routes: Routes = [
   {
@@ -27,9 +30,9 @@ export const routes: Routes = [
     title: 'Authorization page'
   },
   {
-    path: 'requirement-page/:id',
+    path: 'requirement/:id',
     component: RequirementPageComponent,
-    title: 'Ticket page',
+    title: 'Requirement page',
     canActivate: [AuthGuard]
   },
   {
@@ -50,4 +53,10 @@ export const routes: Routes = [
     title: 'TC page',
     canActivate: [AuthGuard]
   },
+  {
+    path: 'project-component/:id',
+    component: ProjectComponentPageComponent,
+    title: 'Project Component page',
+    canActivate: [AuthGuard]
+  }
 ];
