@@ -49,8 +49,7 @@ export class ProjectComponentCreateDialogComponent {
         description: this.createComponentForm.controls.componentDescriptionInput.value,
         finished: false,
         name: this.createComponentForm.controls.componentNameInput.value,
-        projectId: +this.createComponentForm.controls.componentProjectSelect.value
-
+        projectId: +this.createComponentForm.controls.componentProjectSelect.value,
       }
       this.projectComponentService.saveComponent(component).subscribe(data => {
         console.log(data);

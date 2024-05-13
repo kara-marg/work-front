@@ -2,7 +2,9 @@
   <mat-expansion-panel>
     <mat-expansion-panel-header>
       <mat-panel-title>
-        {{ projectComponent?.name }}
+        <div routerLink="/project-component/{{projectComponent?.id}}" class="div-component-name">
+          {{ projectComponent?.name }}
+        </div>
         <mat-icon class="info-icon" matTooltip={{projectComponent?.description}}>info_outline</mat-icon>
       </mat-panel-title>
 
@@ -14,7 +16,7 @@
     </mat-expansion-panel-header>
     <div>
       <p *ngFor="let requirement of projectComponent?.requirements" class="requirement" routerLink="/requirement/{{requirement?.id}}" >
-        - {{ requirement?.name }}
+         {{ requirement?.name }}
         <mat-icon class="header-icon">arrow_right_alt</mat-icon>
       </p>
     </div>

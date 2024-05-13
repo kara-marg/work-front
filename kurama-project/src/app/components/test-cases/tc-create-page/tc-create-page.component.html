@@ -1,0 +1,101 @@
+<article>
+  <mat-card class="test-case-card">
+    <form [formGroup]="createTCForm" class="tc-form">
+      <mat-card-header class="test-case-header">
+        <h1>Create Test Case</h1>
+        <button mat-raised-button class="save-button">Save</button>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="information">
+          <div class="description">
+            <div class="requirements-header">
+              <h2 class="h1-requirements">Base information: </h2>
+            </div>
+
+            <div class="input-blocks">
+              <h2>Test Case name</h2>
+              <mat-form-field class="input-full">
+                <mat-label>Enter test case name</mat-label>
+                <input matInput formControlName="testCaseNameInput" required>
+              </mat-form-field>
+            </div>
+            <div class="input-blocks">
+              <h2>Test Case description</h2>
+              <mat-form-field class="input-full">
+                <mat-label>Enter test case description</mat-label>
+                <input matInput formControlName="testCaseDescriptionInput" required>
+              </mat-form-field>
+            </div>
+            <div class="input-blocks">
+              <h2>Select Project</h2>
+              <mat-form-field class="input-full">
+                <mat-label>Choose a project</mat-label>
+                <mat-select formControlName="testCaseProjectIdSelect" required>
+                  <mat-option *ngFor="let project of projects" value="{{project.id}}">{{ project.name }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div class="input-blocks">
+              <h2>Select Project Component</h2>
+              <mat-form-field class="input-full">
+                <mat-label>Choose a project component</mat-label>
+                <mat-select formControlName="testCaseProjectComponentIdSelect" required>
+                  <mat-option *ngFor="let projectComponent of projectComponents"
+                              value="{{projectComponent.id}}">{{ projectComponent.name }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+          </div>
+          <div class="select">
+
+            <div>
+              <div class="requirements-header">
+                <h2 class="h1-requirements">Covered requirements: </h2>
+                <div class="button-add">
+                  <button mat-mini-fab matTooltip="Add covered requirement" color="white"
+                          (click)="openRequirementSelectDialog()">
+                    <mat-icon>add</mat-icon>
+                  </button>
+                </div>
+              </div>
+              <div class="text-requirements">
+                <h2 class="h2-requirement">text</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="steps-header">
+          <h1 class="h1-steps">Steps: </h1>
+          <div class="button-add">
+            <button mat-mini-fab matTooltip="Add new steps" color="white" (click)="addStep()">
+              <mat-icon>add</mat-icon>
+            </button>
+          </div>
+        </div>
+        <div *ngFor="let _ of [].constructor(stepNumber); let i = index" class="step">
+          <div class="step-number">
+              {{ i + 1 }}
+          </div>
+          <div class="step-action">
+            <mat-form-field class="full-width">
+              <mat-label>Action</mat-label>
+              <textarea matInput formControlName="{{i+1}}_Action" placeholder="Provide step action"></textarea>
+            </mat-form-field>
+          </div>
+          <div class="step-expected-result">
+            <mat-form-field class="full-width">
+              <mat-label>Expected result</mat-label>
+              <textarea matInput formControlName="{{i+1}}_ER" placeholder="Provide step expected result"></textarea>
+            </mat-form-field>
+          </div>
+          <div class="step-delete-action">
+            <mat-icon>delete</mat-icon>
+          </div>
+
+        </div>
+      </mat-card-content>
+    </form>
+  </mat-card>
+</article>

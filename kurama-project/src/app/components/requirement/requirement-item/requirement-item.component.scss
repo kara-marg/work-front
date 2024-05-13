@@ -1,31 +1,26 @@
-article {
-  padding: 1% 5%;
-}
-.example-button-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center; // Центрує елементи по вертикалі
-  background-color: white;
-  width: 100%;
+
+.div-requirement-name{
+  color: #6976b2;
 }
 
-.project-card {
-  background-color: #C9D6F6;
-  padding-bottom: 1%;
-}
-.body-content{
-  display: flex;
-  align-items: center;
-  width: 100%; // Займати всю доступну ширину
+.div-requirement-name:hover{
+  color: #3f51b5;
 }
 
-.button-description, .button-Jira{
-  font-size: 18px;
-  margin-left: 1%; // Додає відступ між кнопками
-  max-width: calc(60% - 0.5%); // Задає максимальну ширину кнопок
+.info-icon{
+  color: #6976b2;
 }
-h2 {
-  font-size: 20px;
-  margin: 0; // Видаляє стандартний відступ, щоб уникнути зайвого простору
-  flex-grow: 1; // Займати доступний простір}
+
+.header-icon{
+  float: right;
+  margin-right: 5%;
+}
+
+.test-case{
+  transition: background-color 0.3s ease;
+}
+
+.test-case:hover{
+  background-color: rgba(105, 118, 178, 0.2);
+  cursor: pointer;
 }

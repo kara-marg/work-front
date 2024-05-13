@@ -1,13 +1,19 @@
 import {Component, inject} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, RouterLink} from "@angular/router";
 import {TcService} from "../../../services/tc.service";
 import {Requirement} from "../../../entity/requirement";
 import {TestCase} from "../../../entity/testCase";
-import {MatButton} from "@angular/material/button";
+import {MatButton, MatMiniFabButton} from "@angular/material/button";
 import {MatCard, MatCardActions, MatCardContent, MatCardHeader} from "@angular/material/card";
 import {TcListComponent} from "../tc-list/tc-list.component";
 import {MatCell, MatCellDef, MatColumnDef, MatHeaderCell, MatHeaderCellDef, MatTable} from "@angular/material/table";
-import {DatePipe, NgIf} from "@angular/common";
+import {DatePipe, NgForOf, NgIf} from "@angular/common";
+import {MatIcon} from "@angular/material/icon";
+import {MatTooltip} from "@angular/material/tooltip";
+import {MatDialog} from "@angular/material/dialog";
+import {
+  RequirementSelectDialogComponent
+} from "../../requirement/requirement-select-dialog/requirement-select-dialog.component";
 
 @Component({
   selector: 'app-tc-page',
@@ -26,7 +32,12 @@ import {DatePipe, NgIf} from "@angular/common";
     MatCellDef,
     MatHeaderCell,
     MatHeaderCellDef,
-    DatePipe
+    DatePipe,
+    RouterLink,
+    MatIcon,
+    MatMiniFabButton,
+    MatTooltip,
+    NgForOf
   ],
   templateUrl: './tc-page.component.html',
   styleUrl: './tc-page.component.scss'
@@ -35,10 +46,20 @@ export class TcPageComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
   testCaseService: TcService = inject(TcService)
   testCase?: TestCase;
-  displayedColumns: string[] = ['name', 'status', 'actions'];
-  constructor() {
+  constructor(public dialog: MatDialog) {
     const testCaseId = Number(this.route.snapshot.params['id']);
-    this.testCase = this.testCaseService.getTestCasesById(testCaseId)
-
+    this.testCaseService.getTestCasesById(testCaseId).subscribe(
+      data =>{ this.testCase = data;
+      console.log(data)}
+    )
   }
-}
+
+
+  openRequirementSelectDialog(){
+    const dialogRef = this.dialog.open(RequirementSelectDialogComponent,{
+      width: '50%',
+      data: {testCase: this.testCase}
+    });
+
+
+}}

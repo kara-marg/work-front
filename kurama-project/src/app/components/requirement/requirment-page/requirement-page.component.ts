@@ -1,5 +1,5 @@
 import {Component, inject, Input} from '@angular/core';
-import {MatButton} from "@angular/material/button";
+import {MatButton, MatMiniFabButton} from "@angular/material/button";
 import {MatCard, MatCardActions, MatCardContent, MatCardHeader} from "@angular/material/card";
 import {ActivatedRoute, RouterLink} from "@angular/router";
 import {ProjectService} from "../../../services/project.service";
@@ -13,6 +13,8 @@ import {DatePipe, NgForOf} from "@angular/common";
 import {ProjectItemComponent} from "../../project/project-item/project-item.component";
 import {RequirementService} from "../../../services/requirement.service";
 import {MatIcon} from "@angular/material/icon";
+import {TcItemComponent} from "../../test-cases/tc-item/tc-item.component";
+import {MatTooltip} from "@angular/material/tooltip";
 
 @Component({
   selector: 'app-ticket-page',
@@ -28,7 +30,10 @@ import {MatIcon} from "@angular/material/icon";
     NgForOf,
     ProjectItemComponent,
     DatePipe,
-    MatIcon
+    MatIcon,
+    TcItemComponent,
+    MatMiniFabButton,
+    MatTooltip
   ],
   templateUrl: './requirement-page.component.html',
   styleUrl: './requirement-page.component.scss'
@@ -57,4 +62,7 @@ export class RequirementPageComponent {
       )
     }
   }
+
+
+
 }

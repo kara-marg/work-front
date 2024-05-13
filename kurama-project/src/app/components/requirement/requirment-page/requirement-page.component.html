@@ -11,11 +11,25 @@
         <mat-icon class="header-icon">arrow_right_alt</mat-icon>
       </h2>
       <h1>{{ requirement?.name }}</h1>
-      <!--      <h1>{{}}</h1>-->
     </mat-card-header>
     <mat-card-content>
+      <div class="information">
+        <div class="description">
+            <h2 class="h2ForDescription">Description: </h2>
+            <p class="h2ForDescription">{{ requirement?.description }}</p>
+        </div>
+      </div>
+
       <div>
-        <p>{{ requirement?.description }}</p>
+        <div class="tc-header">
+            <h1 class="h1-tc">Test Cases:</h1>
+            <div class="button-add">
+              <button mat-mini-fab matTooltip="Add new test case" color="white"  routerLink="/tc-create-page">
+                <mat-icon>add</mat-icon>
+              </button>
+            </div>
+        </div>
+        <app-tc-item *ngFor="let testCase of requirement?.testCases" [testCase]="testCase"></app-tc-item>
       </div>
     </mat-card-content>
   </mat-card>

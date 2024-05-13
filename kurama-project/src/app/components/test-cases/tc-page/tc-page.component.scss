@@ -1,63 +1,96 @@
 article {
   padding: 1% 5%;
 }
-.example-button-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center; // Центрує елементи по вертикалі
-  background-color: white;
-  width: 100%;
+
+.test-case-card {
+  border-radius: 15px;
 }
 
-h1 {
-  font-size: 24px;
-  font-weight: 500;
-  margin: 0; // Видаляє стандартний відступ, щоб уникнути зайвого простору
-  flex-grow: 1; // Займати доступний простір
+.header-icon {
+  float: right;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
-.header-content {
-  display: flex;
-  align-items: center;
-  width: 100%; // Займати всю доступну ширину
-  padding-bottom: 0;
+.test-case-header {
+  background-color: #6976b2;
+  color: white;
 }
 
-.button {
-  margin-left: 1%; // Додає відступ між кнопками
-  max-width: calc(50% - 0.5%); // Задає максимальну ширину кнопок
+h2 {
+  font-size: medium;
+  margin: 0.5% 1% 0 1%; // Видаляє стандартний відступ, щоб уникнути зайвого простору
 }
 
-.project-card {
-  background-color: #C9D6F6;
+.h1-link {
+  cursor: pointer;
 }
-.information{
+
+.description {
+  background-color: rgba(105, 118, 178, 0.2);
+  width: 68%;
+}
+
+.h2ForDescription {
+  margin-left: 1%;
+  margin-top: 1%;
+}
+
+.information {
   padding-top: 1%;
   padding-bottom: 1%;
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
-.description{
-  background-color: white;
-  width: 75%;
+
+.steps-header {
+  background-color: #6976b2;
+  color: white;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 0;
+  position: relative;
 }
-.allInfo{
-  //background-color: yellow;
+.requirements-header{
+  background-color: #6976b2;
+  color: white;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 0;
+  position: relative;
 }
-.h2ForDescription{
+.h1-requirements{
+  margin-left: 1%;
+  margin-top: 1.5%;
+  margin-bottom: 1%;
+
+}
+.h2-requirements{
+  margin-left: 1%;
+  margin-top: 1.5%;
+  margin-bottom: 1%;
+}
+.text-requirements{
+  cursor: pointer;
+
+}
+.h1-steps {
   margin-left: 1%;
   margin-top: 1%;
-}
-.header-for-tc{
 
-  width: 100%; // Займати всю доступну ширину
-  padding-bottom: 0;
-  background-color: white;
 }
-.h2-for-tc{
-  font-size: 22px;
-  font-weight: 500;
-  margin-left: 1%;
-  flex-grow: 1; // Займати доступний простір
+
+.button-add {
+  position: absolute;
+  right: 1%;
 }
+
+
+.requirements {
+  background-color: rgba(105, 118, 178, 0.2);
+  width: 30%;
+}
+

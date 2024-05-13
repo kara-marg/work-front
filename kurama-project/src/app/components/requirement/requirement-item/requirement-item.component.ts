@@ -5,10 +5,19 @@ import {RouterLink} from "@angular/router";
 import {MatCell, MatCellDef, MatColumnDef} from "@angular/material/table";
 import {Requirement} from "../../../entity/requirement";
 import {TcListComponent} from "../../test-cases/tc-list/tc-list.component";
-import {NgIf} from "@angular/common";
+import {NgForOf, NgIf} from "@angular/common";
+import {
+  MatAccordion, MatExpansionModule,
+  MatExpansionPanel,
+  MatExpansionPanelDescription,
+  MatExpansionPanelTitle
+} from "@angular/material/expansion";
+import {MatIcon} from "@angular/material/icon";
+import {MatTooltip} from "@angular/material/tooltip";
+import {TcItemComponent} from "../../test-cases/tc-item/tc-item.component";
 
 @Component({
-  selector: 'app-tickets-details',
+  selector: 'app-requirement-item',
   standalone: true,
   imports: [
     MatButton,
@@ -21,7 +30,16 @@ import {NgIf} from "@angular/common";
     MatCell,
     MatCellDef,
     TcListComponent,
-    NgIf
+    NgIf,
+    MatAccordion,
+    MatExpansionModule,
+    MatExpansionPanel,
+    MatExpansionPanelTitle,
+    MatIcon,
+    MatTooltip,
+    MatExpansionPanelDescription,
+    TcItemComponent,
+    NgForOf
   ],
   templateUrl: './requirement-item.component.html',
   styleUrl: './requirement-item.component.scss'

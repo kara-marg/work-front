@@ -20,5 +20,9 @@ export class ProjectComponentService {
     return this.requestService.postRequest("/project-component/save", component);
   }
 
+  getAllComponents(): Observable<ProjectComponent[]>{
+    let path = "/project-component/all"
+    return this.requestService.getRequest(path);
+  }
 
 }

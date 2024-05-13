@@ -1,0 +1,21 @@
+<article *ngIf="!loading">
+  <h1 mat-dialog-title>Select Covered Requirements</h1>
+  <mat-dialog-content class="mat-typography">
+<!--    <section [formGroup]="selectCoveredRequirementsGroup" class="requirement-form">-->
+<!--      <p><mat-checkbox class="requirement-full-width" formControlName="requirementNameSelect" *ngFor="let requirement of requirement" value="{{requirement.id}}">{{requirement.name}}-->
+<!--      </mat-checkbox>-->
+<!--      </p>-->
+<!--    </section>-->
+    <form [formGroup]="selectCoveredRequirementsGroup">
+      <div *ngFor="let requirement of requirements">
+        <label *ngIf="requirement.id">
+          <input type="checkbox" [formControlName]="requirement.id"> {{ requirement.name }}
+        </label>
+      </div>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button >Save</button>
+  </mat-dialog-actions>
+</article>

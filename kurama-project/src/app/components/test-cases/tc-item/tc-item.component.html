@@ -1,0 +1,16 @@
+<mat-accordion class="example-headers-align" multi>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <div routerLink="/tc-page/{{testCase?.id}}" class="div-test-case-name">
+          {{ testCase?.name }}
+        </div>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <div>
+      <p>
+        {{ testCase?.description }}
+      </p>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

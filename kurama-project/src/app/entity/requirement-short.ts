@@ -1,6 +1,4 @@
-import {TestCase} from "./testCase";
-
-export interface Requirement {
+export interface RequirementShort {
   id?: number;
   name: string | null;
   description: string | null;
@@ -8,8 +6,4 @@ export interface Requirement {
   projectId?: number,
   projectComponentName?: string,
   projectName?: string,
-  testCases?: TestCase[];
-  date?: Date,
-
-
 }

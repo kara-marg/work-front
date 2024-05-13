@@ -13,8 +13,8 @@ export class RequirementService {
   }
 
 
-  getAllRequirements(): Observable<Requirement[]> {
-    let path = "/requirement/all"
+  getAllRequirementsByProjectId(projectId: number): Observable<Requirement[]> {
+    let path = `/requirement/project/${projectId}`
     return this.requestService.getRequest(path);
   }
 

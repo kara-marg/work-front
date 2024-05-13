@@ -1,0 +1,147 @@
+article {
+  padding: 1% 5%;
+}
+.test-case-card {
+  border-radius: 15px;
+}
+.test-case-header {
+  background-color: #6976b2;
+  color: white;
+}
+.test-case-header h1 {
+  margin-left: 45%;
+}
+.test-case-header button {
+  margin-left: 35%;
+  font-size: large;
+  color: white;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+}
+h2 {
+  //font-size: medium;
+  margin: 0.5% 1% 0 1%; // Видаляє стандартний відступ, щоб уникнути зайвого простору
+}
+.input-full {
+  width: 80%;
+}
+.information {
+  padding-top: 1%;
+  padding-bottom: 1%;
+  display: flex;
+  //justify-content: space-between;
+}
+.description {
+   background-color: rgba(105, 118, 178, 0.2);
+   width: 49%;
+ }
+.select{
+  margin-left: 1%;
+  background-color: rgba(105, 118, 178, 0.2);
+  width: 50%;
+
+}
+.steps-header {
+  background-color: #6976b2;
+  color: white;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 0;
+  position: relative;
+}
+.h1-steps {
+  margin-left: 1%;
+  margin-top: 1%;
+
+}
+.button-add {
+  position: absolute;
+  right: 1%;
+}
+.requirements-header{
+  background-color: rgba(105, 118, 178, 0.6);
+  color: white;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 0;
+  position: relative;
+}
+.h1-requirements{
+  margin-left: 1%;
+  margin-top: 1.5%;
+  margin-bottom: 1%;
+
+}
+.h2-requirements{
+  margin-left: 1%;
+  margin-top: 1.5%;
+  margin-bottom: 1%;
+}
+.text-requirements{
+  //cursor: pointer;
+  margin-left: 5%; margin-right: 5%;
+  padding-top: 0.5%;
+}
+
+.input-blocks{
+  width: 90%;
+  margin-left: 5%; margin-right: 5%;
+  padding-top: 0.5%;
+
+}
+
+.save-button{
+ // padding-right: 1%;
+}
+
+.step{
+  max-width: 100%;
+
+  white-space: nowrap;
+}
+
+.step-number {
+  display: inline-block;
+  width: 10%;
+  /* Optional: Add some margin between blocks */
+  margin-right: 10px;
+  /* Optional: Add some margin at the bottom for better spacing */
+  margin-bottom: 10px;
+
+}
+
+.step-action {
+  display: inline-block;
+  /* Optional: Add some margin between blocks */
+  margin-right: 10px;
+  /* Optional: Add some margin at the bottom for better spacing */
+  margin-bottom: 10px;
+  width: 40%
+
+
+}
+
+.step-delete-action{
+  display: inline-block;
+  width: 10%;
+  /* Optional: Add some margin between blocks */
+  margin-right: 10px;
+  /* Optional: Add some margin at the bottom for better spacing */
+  margin-bottom: 10px;
+}
+
+.step-expected-result {
+  display: inline-block;
+  /* Optional: Add some margin between blocks */
+  margin-right: 10px;
+  /* Optional: Add some margin at the bottom for better spacing */
+  margin-bottom: 10px;
+  width: 40%
+}
+
+.full-width {
+  width: 100%;
+  height: 100%;
+}

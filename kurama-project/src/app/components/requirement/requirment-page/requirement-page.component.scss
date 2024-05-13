@@ -25,3 +25,37 @@ h2 {
 .h1-link{
   cursor: pointer;
 }
+
+.description{
+  background-color: rgba(105, 118, 178, 0.2);
+  width: 99%;
+}
+.h2ForDescription{
+  margin-left: 1%;
+  margin-top: 1%;
+}
+.information{
+  padding-top: 1%;
+  padding-bottom: 1%;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.tc-header{
+  background-color: #6976b2;
+  color: white;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 0;
+  position: relative;
+}
+.h1-tc{
+  margin-left: 1%;
+  margin-top: 1%;
+}
+.button-add{
+  position: absolute;
+  right: 1%;
+}

@@ -1,12 +1,32 @@
 import {Component, inject} from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, RouterLink} from "@angular/router";
 import {ProjectComponentService} from "../../../services/project-component.service";
 import {ProjectComponent} from "../../../entity/projectComponent";
+import {MatCard, MatCardContent, MatCardHeader} from "@angular/material/card";
+import {MatIcon} from "@angular/material/icon";
+import {MatMiniFabButton} from "@angular/material/button";
+import {MatTooltip} from "@angular/material/tooltip";
+import {RequirementItemComponent} from "../../requirement/requirement-item/requirement-item.component";
+import {NgForOf} from "@angular/common";
+import {MatDialog} from "@angular/material/dialog";
+import {
+  RequirementCreateDialogComponent
+} from "../../requirement/requirement-create-dialog/requirement-create-dialog.component";
 
 @Component({
   selector: 'app-project-component-page',
   standalone: true,
-  imports: [],
+  imports: [
+    MatCard,
+    RouterLink,
+    MatIcon,
+    MatCardHeader,
+    MatCardContent,
+    MatMiniFabButton,
+    MatTooltip,
+    RequirementItemComponent,
+    NgForOf
+  ],
   templateUrl: './project-component-page.component.html',
   styleUrl: './project-component-page.component.scss'
 })
@@ -16,7 +36,7 @@ export class ProjectComponentPageComponent {
   projectComponent?: ProjectComponent;
   projectComponentId?: number;
 
-  constructor() {
+  constructor(public dialog: MatDialog) {
     this.projectComponentId = Number(this.route.snapshot.params['id']);
     this.getProjectComponentById();
   }
@@ -30,4 +50,17 @@ export class ProjectComponentPageComponent {
       )
     }
   }
+
+  openRequirementDialog() {
+    const dialogRef = this.dialog.open(RequirementCreateDialogComponent, {
+      width: '50%',
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      this.getProjectComponentById();
+    });
+
+  }
+
+
 }

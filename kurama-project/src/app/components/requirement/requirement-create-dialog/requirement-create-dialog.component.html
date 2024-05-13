@@ -1,0 +1,44 @@
+<article>
+  <h1 mat-dialog-title>Create Requirement</h1>
+  <mat-dialog-content class="mat-typography">
+    <form [formGroup]="createRequirementForm" class="requirement-form">
+      <div>
+        <h2>Name</h2>
+        <mat-form-field class="requirement-full-width">
+          <mat-label>Enter requirement name</mat-label>
+          <input matInput formControlName="requirementNameInput" required>
+        </mat-form-field>
+      </div>
+      <div>
+        <h2>Description</h2>
+        <mat-form-field class="requirement-full-width">
+          <mat-label>Enter requirement description</mat-label>
+          <input matInput formControlName="requirementDescriptionInput" required>
+        </mat-form-field>
+      </div>
+      <div>
+        <h2>Project</h2>
+        <mat-form-field class="requirement-full-width">
+          <mat-label>Choose a project</mat-label>
+          <mat-select formControlName="requirementProjectSelect" required>
+            <mat-option *ngFor="let project of projects" value="{{project.id}}">{{project.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div>
+        <h2>Component</h2>
+        <mat-form-field class="requirement-full-width">
+          <mat-label>Choose a component</mat-label>
+          <mat-select formControlName="requirementProjectComponentSelect" required>
+            <mat-option *ngFor="let component of projectComponents" value="{{component.id}}">{{component.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button [disabled]="!createRequirementForm.valid" (click)="save()">Save</button>
+  </mat-dialog-actions>
+
+</article>

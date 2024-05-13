@@ -1,0 +1,61 @@
+article {
+  padding: 1% 5%;
+}
+
+.project-component-card {
+  border-radius: 15px;
+}
+
+.project-component-header {
+  background-color: #6976b2;
+  color: white;
+}
+
+.header-icon {
+  float: right;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+h2 {
+  font-size: medium;
+  margin: 0.5% 1% 0 1%; // Видаляє стандартний відступ, щоб уникнути зайвого простору
+}
+
+.h1-link {
+  cursor: pointer;
+}
+
+.description{
+  background-color: rgba(105, 118, 178, 0.2);
+  width: 99%;
+}
+.h2ForDescription{
+  margin-left: 1%;
+  margin-top: 1%;
+}
+.information{
+  padding-top: 1%;
+  padding-bottom: 1%;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.requirements-header{
+  background-color: #6976b2;
+  color: white;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 0;
+  position: relative;
+}
+
+.h1-requirements{
+  margin-left: 1%;
+  margin-top: 1%;
+}
+.button-add{
+  position: absolute;
+  right: 1%;
+}

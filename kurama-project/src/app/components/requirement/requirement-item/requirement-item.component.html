@@ -1,20 +1,19 @@
-<article>
-  <mat-card class="mat-card">
-    <mat-card-header>
-      <mat-card-actions class="example-button-row">
-        <div class="body-content">
-          <div class="header-content">
-            <h2>{{ requirement?.name }}</h2>
-<!--            <h2>Type:  {{ requirement?.type}}</h2>-->
-            <button mat-button class="button-description" mat-raised-button color="accent" routerLink="/requirement-page/{{requirement?.id}}">Details</button>
-            <button mat-button class="button-Jira" mat-raised-button color="accent">Navigate to Jira</button>
-          </div>
-          <table></table>
+<mat-accordion class="example-headers-align" multi>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title >
+        <div routerLink="/requirement/{{requirement?.id}}" class="div-requirement-name">
+          {{ requirement?.name }}
         </div>
-      </mat-card-actions>
-    </mat-card-header>
-    <mat-card-content *ngIf="showTestCases">
-      <app-tc-list></app-tc-list>
-    </mat-card-content>
-  </mat-card>
-</article>
+        <mat-icon class="info-icon" matTooltip="{{requirement?.description}}">info_outline</mat-icon>
+      </mat-panel-title>
+
+    </mat-expansion-panel-header>
+    <div>
+      <p *ngFor="let testCase of requirement?.testCases" class="test-case" routerLink="/tc-page/{{testCase?.id}}">
+        {{testCase?.name}}
+        <mat-icon class="header-icon">arrow_right_alt</mat-icon>
+      </p>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>

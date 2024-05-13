@@ -7,5 +7,6 @@ export interface ProjectComponent {
   description: string | null;
   finished: boolean | null;
   projectId: number | null;
+  projectName?: string | null;
   requirements?: Requirement[];
 }
