@@ -24,5 +24,9 @@ export class ProjectComponentService {
     let path = "/project-component/all"
     return this.requestService.getRequest(path);
   }
+  getAllComponentsByProjectId(projectId: number): Observable<ProjectComponent[]>{
+    let path = `/project-component/project/${projectId}`
+    return this.requestService.getRequest(path);
+  }
 
 }

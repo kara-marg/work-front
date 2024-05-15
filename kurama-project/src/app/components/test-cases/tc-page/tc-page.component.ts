@@ -14,31 +14,39 @@ import {MatDialog} from "@angular/material/dialog";
 import {
   RequirementSelectDialogComponent
 } from "../../requirement/requirement-select-dialog/requirement-select-dialog.component";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {MatFormField, MatLabel} from "@angular/material/form-field";
+import {MatInput} from "@angular/material/input";
 
 @Component({
   selector: 'app-tc-page',
   standalone: true,
-  imports: [
-    MatButton,
-    MatCard,
-    MatCardActions,
-    MatCardHeader,
-    MatCardContent,
-    TcListComponent,
-    MatTable,
-    NgIf,
-    MatColumnDef,
-    MatCell,
-    MatCellDef,
-    MatHeaderCell,
-    MatHeaderCellDef,
-    DatePipe,
-    RouterLink,
-    MatIcon,
-    MatMiniFabButton,
-    MatTooltip,
-    NgForOf
-  ],
+    imports: [
+        MatButton,
+        MatCard,
+        MatCardActions,
+        MatCardHeader,
+        MatCardContent,
+        TcListComponent,
+        MatTable,
+        NgIf,
+        MatColumnDef,
+        MatCell,
+        MatCellDef,
+        MatHeaderCell,
+        MatHeaderCellDef,
+        DatePipe,
+        RouterLink,
+        MatIcon,
+        MatMiniFabButton,
+        MatTooltip,
+        NgForOf,
+        FormsModule,
+        MatFormField,
+        MatInput,
+        MatLabel,
+        ReactiveFormsModule
+    ],
   templateUrl: './tc-page.component.html',
   styleUrl: './tc-page.component.scss'
 })

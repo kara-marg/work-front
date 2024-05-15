@@ -12,6 +12,11 @@ import {ProjectCreateDialogComponent} from "../project-create-dialog/project-cre
 import {
   ProjectComponentCreateDialogComponent
 } from "../../project-component/project-component-create-dialog/project-component-create-dialog.component";
+import {MatCard, MatCardHeader} from "@angular/material/card";
+import {MatIcon} from "@angular/material/icon";
+import {MatButtonToggle} from "@angular/material/button-toggle";
+import {MatButton, MatMiniFabButton} from "@angular/material/button";
+import {MatTooltip} from "@angular/material/tooltip";
 
 @Component({
   selector: 'app-project-list',
@@ -20,7 +25,14 @@ import {
     NgForOf,
     ProjectItemComponent,
     NgIf,
-    RouterLink
+    RouterLink,
+    MatCard,
+    MatCardHeader,
+    MatIcon,
+    MatButtonToggle,
+    MatMiniFabButton,
+    MatTooltip,
+    MatButton
   ],
   templateUrl: './project-list.component.html',
   styleUrl: './project-list.component.scss'

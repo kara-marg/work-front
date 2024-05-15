@@ -21,26 +21,26 @@
           <div>
             <div class="requirements-header">
               <h1 class="h1-requirements">Covered requirements: </h1>
-              <div class="button-add">
-                <button mat-mini-fab matTooltip="Add covered requirement" color="white" (click)="openRequirementSelectDialog()">
-                  <mat-icon>add</mat-icon>
-                </button>
-              </div>
             </div>
             <div class="text-requirements">
               <h2 class="h2-requirement"
                  *ngFor="let requirement of testCase?.requirementShortDTOList" routerLink="/requirement/{{requirement.id}}"> - {{ requirement.name }}</h2>
-
             </div>
           </div>
         </div>
       </div>
       <div class="steps-header">
         <h1 class="h1-steps">Steps: </h1>
-        <div class="button-add">
-          <button mat-mini-fab matTooltip="Add new steps" color="white">
-            <mat-icon>add</mat-icon>
-          </button>
+      </div>
+      <div *ngFor="let step of testCase?.steps; let i = index" class="step">
+        <div class="step-number">
+          {{ i + 1 }}
+        </div>
+        <div class="step-action">
+          {{step.action}}
+        </div>
+        <div class="step-expected-result">
+          {{step.expectedResult}}
         </div>
       </div>
 

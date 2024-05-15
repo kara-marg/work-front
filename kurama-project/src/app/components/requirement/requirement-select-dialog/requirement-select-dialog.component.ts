@@ -3,7 +3,7 @@ import {
   MAT_DIALOG_DATA,
   MatDialogActions,
   MatDialogClose,
-  MatDialogContent,
+  MatDialogContent, MatDialogRef,
   MatDialogTitle
 } from "@angular/material/dialog";
 import {RequirementService} from "../../../services/requirement.service";
@@ -36,24 +36,24 @@ export class RequirementSelectDialogComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
   requirementService: RequirementService = inject(RequirementService);
   requirements: Requirement[] = [];
+  formGroupConfig:{[index: number]:any} = {};
+
   loading: boolean = true
 
   selectCoveredRequirementsGroup: FormGroup = new FormGroup({});
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private formBuilder: FormBuilder) {
-    this.requirementService.getAllRequirementsByProjectId(1).subscribe(
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any,
+              public dialogRef: MatDialogRef<RequirementSelectDialogComponent>,
+              private formBuilder: FormBuilder) {
+    this.requirementService.getAllRequirementsByProjectId(data.projectId).subscribe(
       data => {
         this.requirements = data;
-        // let formGroupConfig = new Map<number, FormControl>;
-        let formGroupConfig:{[index: number]:any} = {};
         for (const requirement of this.requirements) {
           if (requirement.id) {
-            console.log("We are here")
-            formGroupConfig[requirement.id] = new FormControl(this.isRequirementAlreadySelected(requirement.id, this.data.testCase));
+            this.formGroupConfig[requirement.id] = new FormControl(this.isRequirementAlreadySelected(requirement.id, this.data.testCase));
           }
         }
-        this.selectCoveredRequirementsGroup = this.formBuilder.group(formGroupConfig);
+        this.selectCoveredRequirementsGroup = this.formBuilder.group(this.formGroupConfig);
         this.loading = false;
-        console.log(this.selectCoveredRequirementsGroup?.controls)
       })
   }
 
@@ -67,5 +67,25 @@ export class RequirementSelectDialogComponent {
       }
     }
     return false;
+  }
+
+  save(){
+    const resultList: Requirement[] = [];
+    Object.keys(this.formGroupConfig).forEach(requirementId => {
+      const control = this.selectCoveredRequirementsGroup.get(requirementId);
+      if (control?.value) {
+
+        const requirement = this.requirements.find(item => item.id == +requirementId);
+        if (requirement) {
+          resultList.push(requirement);
+        }
+      }
+    });
+    console.log(resultList)
+    this.dialogRef.close({'isSave': true, 'resultList': resultList});
+  }
+
+  close(){
+    this.dialogRef.close({'isSave': false});
   }
 }

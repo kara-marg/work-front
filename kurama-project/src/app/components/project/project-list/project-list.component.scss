@@ -1,7 +1,39 @@
-h1{
-  padding: 1% 5%;
-  margin: 1% 0 0;
-  font-weight: 500;
+
+
+.project-card {
+  //border-radius: 15px;
+ // width: 90%;
 }
 
+.project-item-header{
+  border-top-right-radius: 15px;
+  border-top-left-radius: 15px;
+  border: 2px solid;
+  color: white;
+  background-color: #3f51b5;
+}
+.div {
+  padding: 1% 5%;
+}
+
+
+
+.components-header{
+  background-color: #6976b2;
+  color: white;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 0;
+  position: relative;
+}
+.h1-components{
+  margin-left: 1%;
+  margin-top: 1%;
+}
+.button-add{
+  position: absolute;
+  right: 1%;
+
+}
 

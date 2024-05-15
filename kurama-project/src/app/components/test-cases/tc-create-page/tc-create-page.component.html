@@ -3,7 +3,7 @@
     <form [formGroup]="createTCForm" class="tc-form">
       <mat-card-header class="test-case-header">
         <h1>Create Test Case</h1>
-        <button mat-raised-button class="save-button">Save</button>
+        <button mat-raised-button class="save-button" (click)="save()">Save</button>
       </mat-card-header>
       <mat-card-content>
         <div class="information">
@@ -46,7 +46,6 @@
                 </mat-select>
               </mat-form-field>
             </div>
-
           </div>
           <div class="select">
 
@@ -61,7 +60,8 @@
                 </div>
               </div>
               <div class="text-requirements">
-                <h2 class="h2-requirement">text</h2>
+                <h2 class="h2-requirement"
+                    *ngFor="let requirement of testCase?.requirementShortDTOList"> - {{ requirement.name }}</h2>
               </div>
             </div>
           </div>
@@ -91,7 +91,9 @@
             </mat-form-field>
           </div>
           <div class="step-delete-action">
-            <mat-icon>delete</mat-icon>
+            <button mat-icon-button (click)="deleteStep(i+1)">
+              <mat-icon>delete</mat-icon>
+            </button>
           </div>
 
         </div>

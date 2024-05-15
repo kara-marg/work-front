@@ -94,3 +94,35 @@ h2 {
   width: 30%;
 }
 
+.step-number {
+  display: inline-block;
+  //width: 1%;
+  /* Optional: Add some margin between blocks */
+  margin-right: 3%;
+  /* Optional: Add some margin at the bottom for better spacing */
+  margin-bottom: 10px;
+  font-size: large;
+  margin-left: 3%;
+
+}
+
+.step-action {
+  display: inline-block;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-bottom: 1%;
+  margin-top: 1%;
+  width: 40%;
+
+
+}
+
+.step-expected-result {
+  display: inline-block;
+  /* Optional: Add some margin between blocks */
+  margin-right: 10px;
+  /* Optional: Add some margin at the bottom for better spacing */
+  margin-bottom: 10px;
+  width: 40%
+}
+

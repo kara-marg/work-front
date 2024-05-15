@@ -15,7 +15,7 @@
     </form>
   </mat-dialog-content>
   <mat-dialog-actions align="end">
-    <button mat-button mat-dialog-close>Cancel</button>
-    <button mat-button >Save</button>
+    <button mat-button mat-dialog-close (click)="close()">Cancel</button>
+    <button mat-button (click)="save()">Save</button>
   </mat-dialog-actions>
 </article>

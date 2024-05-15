@@ -1,6 +1,16 @@
-<!--<h1>My projects: </h1>-->
 <div *ngIf="loading">loading ...</div>
-<div *ngIf="!loading">
-  <button (click)="openProjectCreateDialog()">Create Project</button>
+<article *ngIf="!loading">
+  <div class="div">
+    <mat-card class="project-card">
+      <div class="components-header">
+        <h1 class="h1-components">All projects:</h1>
+        <div class="button-add">
+          <button mat-mini-fab matTooltip="Create  new project" color="white" (click)="openProjectCreateDialog()">
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+      </div>
+    </mat-card>
+  </div>
   <app-project-item *ngFor="let project of projectList" [project]="project"></app-project-item>
-</div>
+</article>
