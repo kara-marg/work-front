@@ -48,12 +48,17 @@ export class RequirementPageComponent {
 
 
   constructor() {
-    this.requirementId = Number(this.route.snapshot.params['id']);
-    this.getRequirementById();
+    this.route.params.subscribe(params => {
+      this.requirementId = +params['id'];
+      this.getRequirement();
+    });
+
+    // this.requirementId = Number(this.route.snapshot.params['id']);
+    // this.getRequirement();
 
   }
 
-  getRequirementById(){
+  getRequirement(){
     if (this.requirementId){
       this.requirementService.getRequirementById(this.requirementId).subscribe(
         data =>{

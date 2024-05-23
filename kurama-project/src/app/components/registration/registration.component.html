@@ -45,7 +45,7 @@
         </mat-form-field>
       </div>
     </form>
-    <button class="login-button" mat-raised-button color="accent" routerLink="/auth">Sign up</button>
+    <button class="login-button" mat-raised-button color="accent" (click)="register()">Sign up</button>
     <h2 class="h2-class">Already have an account? <a [routerLink]="['/auth']">Sign in</a></h2>
   </section>
 </article>

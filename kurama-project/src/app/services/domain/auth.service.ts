@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {UserAuthDetails} from "../../entity/domain/userAuthDetails";
 import {Token} from "../../entity/domain/token";
 import {JwtTokenService} from "./jwt-token.service";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,11 @@ export class AuthService {
   auth(userAuthDetails: UserAuthDetails) {
     let url = this.baseUrl + "/auth/sign-in"
     return this.http.post<Token>(url, userAuthDetails);
+  }
+
+  register(user: { [index: string]: any } ): Observable<Token> {
+    let url = this.baseUrl + "/auth/sign-up"
+    return this.http.post<Token>(url, user);
   }
 
   logout(){

@@ -1,18 +1,43 @@
-<mat-toolbar color="primary">
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="onClick()">
-    <mat-icon>menu</mat-icon>
-  </button>
-  <button mat-raised-button *ngIf="headerService?.isNewItemCreate()">New {{headerService.getItemName()}} + </button>
+<article>
+  <mat-toolbar color="primary">
+    <button mat-icon-button [matMenuTriggerFor]="projectsMenu" class="example-icon"
+            aria-label="Example icon-button with menu icon" (click)="getAllProjects()">
+      <mat-icon>menu</mat-icon>
+    </button>
 
-  <button mat-button class="example-spacer" routerLink="/">{{ text }}</button>
-  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-    <mat-icon>favorite</mat-icon>
-  </button>
-  <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-    <mat-icon>share</mat-icon>
-  </button>
-  <button mat-icon-button aria-label="logout"  (click)="logout()">
-    Log out
-    <mat-icon>exit-to-app</mat-icon>
-  </button>
-</mat-toolbar>
+    <mat-menu #projectsMenu="matMenu">
+      <ng-container *ngFor="let project of projects">
+        <button [matMenuTriggerFor]="projectComponentsMenu" routerLink="/project/{{project.id}}" mat-menu-item *ngIf="isProjectHaveComponents(project)">
+          {{ project.name }}
+        </button>
+        <button mat-menu-item routerLink="/project/{{project.id}}" *ngIf="!isProjectHaveComponents(project)">
+          {{ project.name }}
+        </button>
+        <mat-menu #projectComponentsMenu="matMenu">
+          <ng-container *ngFor="let projectComponent of project.projectComponents">
+            <button mat-menu-item routerLink="/project-component//{{projectComponent.id}}" [matMenuTriggerFor]="requirementsMenu" *ngIf="isProjectComponentHaveRequirements(projectComponent)">{{ projectComponent.name }}</button>
+            <button mat-menu-item routerLink="/project-component//{{projectComponent.id}}"  *ngIf="!isProjectComponentHaveRequirements(projectComponent)">{{ projectComponent.name }}</button>
+            <mat-menu #requirementsMenu="matMenu">
+              <ng-container *ngFor="let requirement of projectComponent.requirements">
+                <button mat-menu-item routerLink="/requirement/{{requirement.id}}">{{ requirement.name }}</button>
+              </ng-container>
+            </mat-menu>
+          </ng-container>
+        </mat-menu>
+      </ng-container>
+    </mat-menu>
+
+
+    <button mat-button class="example-spacer" routerLink="/">{{ text }}</button>
+
+
+    <button mat-icon-button class="material-icons" routerLink="/">
+      <mat-icon>home</mat-icon>
+    </button>
+    <span class="spacer"></span>
+    <button mat-button class="example-spacer" aria-label="logout" (click)="logout()">Log out
+
+    </button>
+  </mat-toolbar>
+</article>
+

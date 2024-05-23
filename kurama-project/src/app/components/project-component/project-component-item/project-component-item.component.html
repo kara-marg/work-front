@@ -11,7 +11,7 @@
       <mat-panel-description>
         <mat-icon *ngIf="projectComponent?.finished" class="ok-icon">check</mat-icon>
         <mat-icon *ngIf="!projectComponent?.finished" class="cancel-icon">cancel</mat-icon>
-        <mat-progress-bar mode="determinate" [value]="10"></mat-progress-bar>
+        <mat-progress-bar mode="determinate" [value]="projectComponent?.coverage"></mat-progress-bar>
       </mat-panel-description>
     </mat-expansion-panel-header>
     <div>

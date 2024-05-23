@@ -49,4 +49,8 @@ export class ProjectItemComponent {
   @Input() project?: Project;
 
   displayedColumns: string[] = ["name", "finished", "coverage"];
+
+  constructor() {
+    console.log(this.project)
+  }
 }

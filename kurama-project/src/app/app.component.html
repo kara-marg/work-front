@@ -1,4 +1,4 @@
-<app-header></app-header>
+<app-header *ngIf="isAuthed()"></app-header>
 <section class="content">
   <router-outlet></router-outlet>
 </section>

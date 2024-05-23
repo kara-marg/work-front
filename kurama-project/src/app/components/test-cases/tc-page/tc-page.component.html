@@ -1,11 +1,12 @@
 <article>
   <mat-card class="test-case-card">
     <mat-card-header class="test-case-header">
-      <h1 routerLink="/project/{{testCase?.projectId}}">{{ testCase?.projectName }}</h1>
+      <h1 routerLink="/project/{{testCase?.projectId}}" class="h1-link">{{ testCase?.projectName }}</h1>
       <h2>
         <mat-icon class="header-icon">arrow_right_alt</mat-icon>
       </h2>
-      <h1 routerLink="/project-component/{{testCase?.projectComponentId}}">{{ testCase?.projectComponentName }}</h1>
+      <h1 routerLink="/project-component/{{testCase?.projectComponentId}}"
+          class="h1-link">{{ testCase?.projectComponentName }}</h1>
       <h2>
         <mat-icon class="header-icon">arrow_right_alt</mat-icon>
       </h2>
@@ -24,7 +25,8 @@
             </div>
             <div class="text-requirements">
               <h2 class="h2-requirement"
-                 *ngFor="let requirement of testCase?.requirementShortDTOList" routerLink="/requirement/{{requirement.id}}"> - {{ requirement.name }}</h2>
+                  *ngFor="let requirement of testCase?.requirementShortDTOList"
+                  routerLink="/requirement/{{requirement.id}}"> - {{ requirement.name }}</h2>
             </div>
           </div>
         </div>
@@ -32,15 +34,26 @@
       <div class="steps-header">
         <h1 class="h1-steps">Steps: </h1>
       </div>
+      <div class="step">
+        <div class="table-number">
+          <h2>Number</h2>
+        </div>
+        <div class="table">
+          <h2>Action</h2>
+        </div>
+        <div class="table">
+          <h2>Expected result</h2>
+        </div>
+      </div>
       <div *ngFor="let step of testCase?.steps; let i = index" class="step">
         <div class="step-number">
           {{ i + 1 }}
         </div>
         <div class="step-action">
-          {{step.action}}
+          {{ step.action }}
         </div>
         <div class="step-expected-result">
-          {{step.expectedResult}}
+          {{ step.expectedResult }}
         </div>
       </div>
 

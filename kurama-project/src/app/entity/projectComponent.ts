@@ -9,4 +9,5 @@ export interface ProjectComponent {
   projectId: number | null;
   projectName?: string | null;
   requirements?: Requirement[];
+  coverage?: number;
 }

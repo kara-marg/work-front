@@ -1,3 +1,15 @@
-.example-spacer{
+
+article {
+  width: 100%;
+  display: flex;
+}
+
+.example-spacer {
   font-size: large;
+  display: inline-block;
+  margin-right: 1%;
+}
+
+.spacer {
+  flex-grow: 1; /* Додаємо властивість для заповнення простору */
 }

@@ -18,11 +18,13 @@ import {NgIf} from "@angular/common";
 export class AppComponent {
   title = 'kurama-project';
   tokenService
+
   constructor(tokenService: JwtTokenService) {
     this.tokenService = tokenService;
   }
 
   isAuthed(): boolean {
-    return this.tokenService.isTokenExpired();
+    console.log(!this.tokenService.isTokenExpired())
+    return !this.tokenService.isTokenExpired();
   }
 }

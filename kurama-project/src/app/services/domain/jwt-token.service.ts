@@ -15,8 +15,8 @@ export class JwtTokenService {
     if (token) {
       this.authStorageService.set("jwt-token", token)
     } else {
-      console.log("log out")
       this.authStorageService.remove("jwt-token")
+      this.decodeToken();
     }
   }
 
@@ -28,7 +28,8 @@ export class JwtTokenService {
     const token = this.getToken()
     if (token) {
       this.decodedToken =  jwtDecode(token);
-      console.log(this.decodedToken)
+    } else {
+      this.decodedToken = {};
     }
   }
 
@@ -53,11 +54,12 @@ export class JwtTokenService {
   }
 
   isTokenExpired(): boolean {
+    this.getDecodeToken();
     const expiryTime = this.getExpiryTime();
     if (expiryTime) {
       return ((1000 * +expiryTime) - (new Date()).getTime()) < 5000;
     } else {
-      return false;
+      return true;
     }
   }
 }

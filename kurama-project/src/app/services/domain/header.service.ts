@@ -23,11 +23,5 @@ export class HeaderService {
     }
   }
 
-  isNewItemCreate(): boolean {
-    return this.newItemCreate
-  }
 
-  getItemName(): string {
-    return this.itemName ? this.itemName : ""
-  }
 }
