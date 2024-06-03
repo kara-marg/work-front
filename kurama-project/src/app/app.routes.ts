@@ -12,6 +12,7 @@ import {
   ProjectComponentPageComponent
 } from "./components/project-component/project-component-page/project-component-page.component";
 import {TcCreatePageComponent} from "./components/test-cases/tc-create-page/tc-create-page.component";
+import {TcEditPageComponent} from "./components/test-cases/tc-edit-page/tc-edit-page.component";
 
 export const routes: Routes = [
   {
@@ -58,6 +59,12 @@ export const routes: Routes = [
     path: 'tc-create-page',
     component:TcCreatePageComponent,
     title: 'TC create page',
+    canActivate: [AuthGuard]
+  },
+  {
+    path: 'tc-edit-page/:id',
+    component:TcEditPageComponent,
+    title: 'TC edit page',
     canActivate: [AuthGuard]
   },
   {

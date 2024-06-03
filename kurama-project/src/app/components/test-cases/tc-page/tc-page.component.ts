@@ -61,13 +61,4 @@ export class TcPageComponent {
       console.log(data)}
     )
   }
-
-
-  openRequirementSelectDialog(){
-    const dialogRef = this.dialog.open(RequirementSelectDialogComponent,{
-      width: '50%',
-      data: {testCase: this.testCase}
-    });
-
-
-}}
+}

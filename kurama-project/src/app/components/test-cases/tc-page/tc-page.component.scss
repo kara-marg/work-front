@@ -22,10 +22,6 @@ h2 {
   margin: 0.5% 1% 0 1%;
 }
 
-.h1-link {
-  cursor: pointer;
-}
-
 .description {
   background-color: rgba(105, 118, 178, 0.2);
   width: 68%;
@@ -141,4 +137,8 @@ h2 {
   margin-bottom: 10px;
   font-size: large;
   margin-left: 2%;
+}
+
+.edit-button{
+  margin-left: 50%;
 }
