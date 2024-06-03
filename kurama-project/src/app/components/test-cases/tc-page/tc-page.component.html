@@ -53,7 +53,7 @@
       </div>
       <div *ngFor="let step of testCase?.steps; let i = index" class="step">
         <div class="step-number">
-          {{ i + 1 }}
+          {{ step.stepNumber }}
         </div>
         <div class="step-action">
           {{ step.action }}
