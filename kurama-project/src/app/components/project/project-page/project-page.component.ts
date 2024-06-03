@@ -95,6 +95,7 @@ export class ProjectPageComponent {
   openProjectComponentDialog() {
     const dialogRef = this.dialog.open(ProjectComponentCreateDialogComponent, {
       width: '50%',
+      data: { projectId: this.projectId }
     });
 
     dialogRef.afterClosed().subscribe(result => {

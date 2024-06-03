@@ -16,7 +16,6 @@ export class AuthGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot) {
-    console.log(this.jwtService.getUser())
     if (this.jwtService.getUser()) {
 
       if (this.jwtService.isTokenExpired()) {

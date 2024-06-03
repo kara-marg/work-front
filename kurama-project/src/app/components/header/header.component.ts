@@ -58,7 +58,6 @@ export class HeaderComponent {
       data =>
       {
         this.projects = data;
-        console.log(this.triggers)
       }
     )
   }

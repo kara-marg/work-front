@@ -24,7 +24,7 @@
         <div class="tc-header">
             <h1 class="h1-tc">Test Cases:</h1>
             <div class="button-add">
-              <button mat-mini-fab matTooltip="Add new test case" color="white"  routerLink="/tc-create-page">
+              <button mat-mini-fab matTooltip="Add new test case" color="white"  routerLink="/tc-create-page" [queryParams]="{projectId: requirement?.projectId, projectComponentId: requirement?.projectComponentId}">
                 <mat-icon>add</mat-icon>
               </button>
             </div>

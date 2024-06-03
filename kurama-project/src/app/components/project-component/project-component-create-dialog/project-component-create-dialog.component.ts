@@ -33,14 +33,21 @@ export class ProjectComponentCreateDialogComponent {
     componentProjectSelect: new FormControl('', Validators.required)
   })
 
-  constructor(private dialogRef: MatDialogRef<ProjectComponentCreateDialogComponent>) {
+  constructor(private dialogRef: MatDialogRef<ProjectComponentCreateDialogComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: any) {
+
     this.projectService.getAllProjects().subscribe(
-      data => {
-        this.projects = data
+      allProjects => {
+        this.projects = allProjects
         this.loading = false;
+        if (data.projectId) {
+          this.createComponentForm.controls.componentProjectSelect.setValue(`${data.projectId}`);
+          this.createComponentForm.controls.componentProjectSelect.disable();
+        }
       }
     );
   }
+
 
 
   save(){

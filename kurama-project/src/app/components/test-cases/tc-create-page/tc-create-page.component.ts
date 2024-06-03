@@ -89,6 +89,19 @@ export class TcCreatePageComponent {
     this.createTCForm.get('testCaseProjectIdSelect')?.valueChanges.subscribe(value => {
       this.getProjectComponents(value);
     });
+
+    this.route.queryParams.subscribe(params => {
+      const projectId = params['projectId'];
+      const projectComponentId = params['projectComponentId'];
+      if (projectId) {
+        this.createTCForm.controls['testCaseProjectIdSelect'].setValue(`${projectId}`)
+        this.createTCForm.controls['testCaseProjectIdSelect'].disable();
+      }
+      if (projectComponentId) {
+        this.createTCForm.controls['testCaseProjectComponentIdSelect'].setValue(`${projectComponentId}`)
+        this.createTCForm.controls['testCaseProjectComponentIdSelect'].disable();
+      }
+    });
   }
 
   getProjectComponents(projectId: number){

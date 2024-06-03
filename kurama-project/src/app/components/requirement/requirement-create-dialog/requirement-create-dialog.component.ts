@@ -1,4 +1,4 @@
-import {Component, inject} from '@angular/core';
+import {Component, Inject, inject} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {ProjectService} from "../../../services/project.service";
 import {ProjectComponentService} from "../../../services/project-component.service";
@@ -8,6 +8,7 @@ import {ProjectComponent} from "../../../entity/projectComponent";
 import {Requirement} from "../../../entity/requirement";
 import {RequirementService} from "../../../services/requirement.service";
 import {
+  MAT_DIALOG_DATA,
   MatDialogActions,
   MatDialogClose,
   MatDialogContent, MatDialogModule,
@@ -47,7 +48,8 @@ export class RequirementCreateDialogComponent {
   requirementService: RequirementService = inject(RequirementService);
   projects: Project[] = [];
   projectComponents: ProjectComponent[] = [];
-  loading: boolean = true
+  loadingProjects: boolean = true
+  loadingComponents: boolean = true
 
   createRequirementForm = new FormGroup({
     requirementNameInput: new FormControl('',Validators.required),
@@ -56,18 +58,26 @@ export class RequirementCreateDialogComponent {
     requirementProjectComponentSelect: new FormControl('',Validators.required),
   })
 
-  constructor(private dialogRef: MatDialogRef<RequirementCreateDialogComponent>) {
+  constructor(private dialogRef: MatDialogRef<RequirementCreateDialogComponent>,
+              @Inject(MAT_DIALOG_DATA) public data: any) {
     this.projectService.getAllProjects().subscribe(
-      data => {
-        this.projects = data;
-        this.loading = false;
+      allProjects => {
+        this.projects = allProjects;
+        if (data.projectId) {
+          this.createRequirementForm.controls.requirementProjectSelect.setValue(`${data.projectId}`)
+          this.createRequirementForm.controls.requirementProjectSelect.disable();
+        }
+        this.loadingProjects = false;
       }
     )
     this.projectComponentService.getAllComponents().subscribe(
-      data =>{
-        this.projectComponents = data;
-        this.loading = false;
-
+      components =>{
+        this.projectComponents = components;
+        if (data.projectId) {
+          this.createRequirementForm.controls.requirementProjectComponentSelect.setValue(`${data.projectComponentId}`)
+          this.createRequirementForm.controls.requirementProjectComponentSelect.disable();
+        }
+        this.loadingComponents = false;
       }
     )
   }

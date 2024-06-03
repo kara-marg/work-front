@@ -24,7 +24,6 @@ export class AppComponent {
   }
 
   isAuthed(): boolean {
-    console.log(!this.tokenService.isTokenExpired())
     return !this.tokenService.isTokenExpired();
   }
 }

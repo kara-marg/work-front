@@ -54,6 +54,10 @@ export class ProjectComponentPageComponent {
   openRequirementDialog() {
     const dialogRef = this.dialog.open(RequirementCreateDialogComponent, {
       width: '50%',
+      data: {
+        projectId: this.projectComponent?.projectId,
+        projectComponentId: this.projectComponent?.id
+      }
     });
 
     dialogRef.afterClosed().subscribe(result => {
